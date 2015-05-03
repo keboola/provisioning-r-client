@@ -22,5 +22,23 @@ Maintainer: Ondrej Popelka <ondrej.popelka@keboola.com>
 }
 \keyword{ programming, database }
 \examples{
-    # do something
+\dontrun{
+    # create client
+    client <- ProvisioningClient$new(
+        backend = 'redshift',
+        token = 'your-KBC-token'
+    )
+    credentials <- client$getCredentials()$credentials
+    
+    # verify that the credentials actually work
+    db <- RedshiftDriver$new()
+    db$connect(
+        credentials$host, 
+        credentials$db, 
+        credentials$user, 
+        credentials$password, 
+        credentials$schema
+    )    
 }
+}
+
