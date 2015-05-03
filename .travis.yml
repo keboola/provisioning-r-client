@@ -2,6 +2,9 @@ language: r
 
 sudo: required
 
+apt_packages:
+ - openjdk-7-jre
+
 # Be strict when checking our package
 warnings_are_errors: true
 
