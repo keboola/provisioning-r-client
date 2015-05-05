@@ -5,6 +5,13 @@
 Client for using [Keboola Connection Provisioning API](http://docs.provisioningapi.apiary.io/). This API client 
 provides credentials to transformation and sanbox databases.
 
+## Installation
+Package is available only on Github, so you need to use `devtools` to install the package
+```
+library('devtools')
+install_github('keboola/provisioning-r-client', ref = 'master')
+```
+
 ## Examples
 ```
 # create client
