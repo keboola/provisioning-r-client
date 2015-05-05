@@ -31,3 +31,5 @@ db$connect(
     credentials$schema
 ) 
 ```
+
+First argument to ProvisioningClient constructor is database backend, which may be either mysql or redshift. Second argument is Storage API token.

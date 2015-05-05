@@ -2,8 +2,18 @@ language: r
 
 sudo: required
 
+apt_packages:
+ - openjdk-7-jre
+ 
+before_install:
+ - export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/jre
+ - export PATH=$PATH:$JAVA_HOME/bin
+
 # Be strict when checking our package
 warnings_are_errors: true
 
 r_github_packages:
  - keboola/redshift-r-client
+ 
+notifications:
+  slack: keboola:8EW7Y0Kqvxxames1Rfp6feaE
