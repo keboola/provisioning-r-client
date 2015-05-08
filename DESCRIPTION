@@ -1,0 +1,15 @@
+Package: keboola.provisioning.r.client
+Type: Package
+Title: Keboola Connection Provisioning client
+Version: 1.0
+Date: 2015-04-28
+Author: Ondrej Popelka
+Maintainer: Ondrej Popelka <ondrej.popelka@keboola.com>
+Depends:
+	httr,
+	methods
+Suggests:
+	testthat,
+	keboola.redshift.r.client
+Description: Client for working with KBC Provisioning API, provides database credentials.
+License: MIT + file LICENSE
