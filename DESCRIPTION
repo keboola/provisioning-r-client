@@ -6,10 +6,13 @@ Date: 2015-04-28
 Author: Ondrej Popelka
 Maintainer: Ondrej Popelka <ondrej.popelka@keboola.com>
 Depends:
-	httr,
-	methods
+    httr,
+    methods
 Suggests:
-	testthat,
-	keboola.redshift.r.client
-Description: Client for working with KBC Provisioning API, provides database credentials.
+    testthat,
+    devtools,
+    keboola.redshift.r.client
+Description: Client for working with KBC Provisioning API, provides database
+    credentials.
 License: MIT + file LICENSE
+RoxygenNote: 5.0.0.9000

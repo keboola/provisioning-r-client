@@ -1,5 +1,4 @@
-library('devtools')
-install_github('keboola/redshift-r-client', ref = 'master')
+devtools::install_github('keboola/redshift-r-client', ref = 'master')
 
 # include redshift client for actually testing that the provided credentials are valid
 library('keboola.redshift.r.client')

@@ -5,8 +5,8 @@
 #' transformation buckets. Additional methods to kill sandbox/transformation 
 #' bucket are available.
 #' @import httr methods
-#' @exportClass ProvisioningClient
 #' @export ProvisioningClient
+#' @exportClass ProvisioningClient
 ProvisioningClient <- setRefClass(
     'ProvisioningClient',
     fields = list(
@@ -16,25 +16,26 @@ ProvisioningClient <- setRefClass(
         url = 'character'
     ),
     methods = list(
-        #' Constructor.
-        #'
-        #' @param backend Type of database backend - either 'mysql' or 'redshift'.
-        #' @param token KBC Storage API token.
-        #' @param runId Optional ID of the parent run.
-        #' @param url Optional URL of the provisioning API.
-        #' @exportMethod
         initialize = function(backend, token, runId = '', url = 'https://syrup.keboola.com/provisioning') {
+            "Constructor.
+            \\subsection{Parameters}{\\itemize{
+            \\item{\\code{backend} Type of database backend - either \\code{mysql} or \\code{redshift}}
+            \\item{\\code{token} KBC Storage API token.}
+            \\item{\\code{runId} Optional Run ID of the parent job.}
+            \\item{\\code{url} Optional URL of the provisioning API.}
+            }}"
             backend <<- backend
             token <<- token
             runId <<- runId
             url <<- url
         },
         
-        #' Internal method to process API response
-        #' @param response List as returned from httr POST/GET method
-        #' @return response body - either list or string in case the body cannot be parsed as JSON.
         decodeResponse = function(response) {
-            # decode response
+            "Internal method to process API response.
+            \\subsection{Parameters}{\\itemize{
+            \\item{\\code{response} List as returned from \\code{httr} POST/GET methods.}
+            }}
+            \\subsection{Return Value}{Response body - either list or string in case the body cannot be parsed as JSON.}"
             content <- content(response, as = "text")
             body <- NULL
             tryCatch({
@@ -61,13 +62,13 @@ ProvisioningClient <- setRefClass(
             }
             body            
         },
-        
-        #' Get new credentials of the given type or reuse existing credentials if available.
-        #' 
-        #' @param type Credentials type - either 'transformations' or 'sandbox'
-        #' @return list with credentials
-        #' @exportMethod
+
         getCredentials = function(type = "transformations") {
+            "Get new credentials of the given type or reuse existing credentials if available.
+            \\subsection{Parameters}{\\itemize{
+            \\item{\\code{type} Credentials type - either \\code{transformations} or \\code{sandbox}}
+            }}
+            \\subsection{Return Value}{List with credentials.}"
             response <- POST(
                 paste0(url, '/', backend), 
                 add_headers('X-StorageAPI-Token' = token),
@@ -85,12 +86,12 @@ ProvisioningClient <- setRefClass(
             body
         },
         
-        #' Get existing credentials.
-        #' 
-        #' @param id Credentials id.
-        #' @return list with credentials
-        #' @exportMethod
         getCredentialsById = function(id) {
+            "Get existing credentials.
+            \\subsection{Parameters}{\\itemize{
+            \\item{\\code{id} Credentials id.}
+            }}
+            \\subsection{Return Value}{List with credentials.}"
             if (is.null(id)) {
                 stop("Id must be entered")
             }            
@@ -110,12 +111,12 @@ ProvisioningClient <- setRefClass(
             body        
         },
         
-        #' Delete credentials and cleanup the associated database bucket.
-        #' 
-        #' @param id Credentials id.
-        #' @return TRUE
-        #' @exportMethod
         dropCredentials = function(id) {
+            "Delete credentials and cleanup the associated database bucket.
+            \\subsection{Parameters}{\\itemize{
+            \\item{\\code{id} Credentials id.}
+            }}
+            \\subsection{Return Value}{TRUE}"
             if (is.null(id)) {
                 stop("Id must be entered")
             }
@@ -135,12 +136,12 @@ ProvisioningClient <- setRefClass(
             TRUE
         },
         
-        #' Kill database processes running with the given credentials
-        #' 
-        #' @param id Credentials id.
-        #' @return TRUE
-        #' @exportMethod
         killProcesses = function(id) {
+            "Kill database processes running with the given credentials.
+            \\subsection{Parameters}{\\itemize{
+            \\item{\\code{id} Credentials id.}
+            }}
+            \\subsection{Return Value}{TRUE}"
             if (is.null(id)) {
                 stop("Id must be entered")
             }            
