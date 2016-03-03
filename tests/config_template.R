@@ -1,4 +1,4 @@
 # Fill valid KBC parameters (token) and copy this file to config.R 
-apiUrl <- 'https://syrup.keboola.com/provisioning'
-token <- 'yourToken'
-runId <- '123'
+KBC_APIURL <- 'https://syrup.keboola.com/provisioning'
+KBC_TOKEN <- 'yourtoken'
+KBC_RUNID <- '123'

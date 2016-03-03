@@ -6,9 +6,9 @@ library('keboola.redshift.r.client')
 test_that("getCredentials", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     credentials <- client$getCredentials()
     
@@ -42,9 +42,9 @@ test_that("getCredentials", {
 test_that("getCredentialsSandbox", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     credentials <- client$getCredentials('sandbox')
     
@@ -77,9 +77,9 @@ test_that("getCredentialsSandbox", {
 test_that("getCredentialsbyId", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     credentials <- client$getCredentials()
     credentials <- client$getCredentialsById(credentials$credentials$id)
@@ -115,9 +115,9 @@ test_that("getCredentialsbyId", {
 test_that("getCredentialsbyIdException", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     expect_that(
         credentials <- client$getCredentialsById(123),
@@ -129,9 +129,9 @@ test_that("getCredentialsbyIdException", {
 test_that("killCredentials", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     credentials <- client$getCredentials()$credentials
 
@@ -164,8 +164,8 @@ test_that("killCredentials", {
 test_that("killCredentialsException", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId
+        token = KBC_TOKEN,
+        runId = KBC_RUNID
     )
     
     expect_that(
@@ -178,9 +178,9 @@ test_that("killCredentialsException", {
 test_that("dropCredentialsTransformation", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     credentials <- client$getCredentials()$credentials
     
@@ -213,9 +213,9 @@ test_that("dropCredentialsTransformation", {
 test_that("dropCredentialsSanbox", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     credentials <- client$getCredentials('sandbox')$credentials
     
@@ -249,9 +249,9 @@ test_that("dropCredentialsSanbox", {
 test_that("dropCredentialsException", {
     client <- ProvisioningClient$new(
         backend = 'redshift',
-        token = token,
-        runId = runId,
-        url = apiUrl
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
     )
     
     expect_that(

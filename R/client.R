@@ -36,7 +36,7 @@ ProvisioningClient <- setRefClass(
             \\item{\\code{response} List as returned from \\code{httr} POST/GET methods.}
             }}
             \\subsection{Return Value}{Response body - either list or string in case the body cannot be parsed as JSON.}"
-            content <- content(response, as = "text")
+            content <- content(response, as = "text", encoding = 'utf-8')
             body <- NULL
             tryCatch({
                 body <- jsonlite::fromJSON(content)
