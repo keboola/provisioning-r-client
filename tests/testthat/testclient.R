@@ -245,6 +245,26 @@ test_that("dropCredentialsSanbox", {
     )
 })
 
+test_that("getCredentialsType", {
+    client <- ProvisioningClient$new(
+        backend = 'redshift',
+        token = KBC_TOKEN,
+        runId = KBC_RUNID,
+        url = KBC_APIURL
+    )
+    credentials1 <- client$getCredentials('sandbox')$credentials
+    credentials2 <- client$getCredentials('transformations')$credentials
+    
+    expect_false(credentials1$id == credentials2$id)
+    expect_false(credentials1$user == credentials2$user)
+    
+    # verify that the connection has been killed
+    expect_that(
+        db$select("SELECT 1"),
+        throws_error()
+    )
+})
+
 
 test_that("dropCredentialsException", {
     client <- ProvisioningClient$new(

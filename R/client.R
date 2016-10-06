@@ -72,7 +72,8 @@ ProvisioningClient <- setRefClass(
             response <- POST(
                 paste0(url, '/', backend), 
                 add_headers('X-StorageAPI-Token' = token),
-                query = list(type = type)
+                body = list(type = type),
+                encode = "json"
             )
             
             body <- decodeResponse(response)
