@@ -19,7 +19,7 @@ ProvisioningClient <- setRefClass(
         initialize = function(backend, token, runId = '', url = 'https://syrup.keboola.com/provisioning') {
             "Constructor.
             \\subsection{Parameters}{\\itemize{
-            \\item{\\code{backend} Type of database backend - either \\code{mysql} or \\code{redshift}}
+            \\item{\\code{backend} Type of database backend - either \\code{snowflake} or \\code{redshift-workspace}}
             \\item{\\code{token} KBC Storage API token.}
             \\item{\\code{runId} Optional Run ID of the parent job.}
             \\item{\\code{url} Optional URL of the provisioning API.}
