@@ -12,4 +12,6 @@ r_github_packages:
  - keboola/redshift-r-client
 
 notifications:
-  slack: keboola:8EW7Y0Kqvxxames1Rfp6feaE
+  slack:
+    secure: NwSrZqSGTQ8caNRSz73vIIK648L9CIXvlhWXPd4AY1lxYG9Z8Q2nV564Z5sgpmQT1h7mMugyHJOy0re7aFrh7MDfs7J5fakie0NKedZPCgakSVyEYSomdmP8fkTpd/RZQq6kqjR3H2a+RL1Rp2gYpshHD2ksfqr4tuXpTQKI/u8=
+  email: false
