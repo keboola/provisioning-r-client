@@ -33,3 +33,7 @@ db$connect(
 ```
 
 First argument to ProvisioningClient constructor is database backend, which may be either mysql or redshift. Second argument is Storage API token.
+
+## License
+
+MIT licensed, see [LICENSE](./LICENSE) file.
